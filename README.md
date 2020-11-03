@@ -2,4 +2,4 @@
 
 ## Структура бази даних
 
-![ER digram](db.png)
+![ER digram](bd.png)
