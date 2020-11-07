@@ -142,8 +142,11 @@ class Controller:
                 else:
                     condition = f" WHERE NOT (hours_played > '{hours_played2}' OR hours_played < '{hours_played}')"
 
+            time_start = time.perf_counter()
             data = self.model.get_accounts_and_games(condition)
+            time_end = time.perf_counter()
             self.view.print_2(data)
+            print(f'Time: {time_end - time_start:0.4f} seconds')
             pressEnter()
             self.show_main_menu()
         except Exception as err:
@@ -180,8 +183,12 @@ class Controller:
                     condition += f" AND NOT (price > '{price2}' OR price < '{price}')"
                 else:
                     condition = f" WHERE NOT (price > '{price2}' OR price < '{price}')"
+            
+            time_start = time.perf_counter()
             data = self.model.get_games_and_items(condition)
+            time_end = time.perf_counter()
             self.view.print_2(data)
+            print(f'Time: {time_end - time_start:0.4f} seconds')
             pressEnter()
             self.show_main_menu()
         except Exception as err:
@@ -230,8 +237,11 @@ class Controller:
                 else:
                     condition = f" WHERE NOT (price > '{price2}' OR price < '{price}')"
 
+            time_start = time.perf_counter()
             data = self.model.get_accounts_games_and_items(condition)
+            time_end = time.perf_counter()
             self.view.print_3(data)
+            print(f'Time: {time_end - time_start:0.4f} seconds')
             pressEnter()
             self.show_main_menu()
         except Exception as err:
